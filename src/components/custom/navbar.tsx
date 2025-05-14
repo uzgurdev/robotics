@@ -29,22 +29,23 @@ const Navbar: React.FC = () => {
           />
         </div>
 
-        <div className="flex items-center gap-[30px] relative">
+        <div className="flex items-center gap-[30px]">
           {/* Nav links */}
           <div
-            className={`flex-col md:flex-row md:flex md:items-center absolute md:static top-22 left-0 w-full md:w-auto bg-black border-[14px] border-[#FFDE00] md:border-0 md:bg-transparent shadow-md md:shadow-none transition-all duration-200 z-20 ${
+            className={`flex-col md:flex-row md:flex md:items-center fixed md:static top-0 left-0 w-full md:w-auto bg-black border-[14px] border-[#FFDE00] md:border-0 md:bg-transparent shadow-md md:shadow-none transition-all duration-200 z-50 ${
               isOpen ? "flex" : "hidden"
             } py-5 px-7 md:py-0 md:px-0`}
+            style={{ top: isOpen ? "75px" : "auto" }}
           >
             <a
               href="#home"
-              className="block text-[24px] px-4 py-2 text-white mr-[46px] md:border-b-0 border-b-2  border-b-gray-500 mb-4 md:mb-0"
+              className="block text-[24px] px-4 py-2 text-white mr-[46px] md:border-b-0 border-b-2 border-b-gray-500 mb-4 md:mb-0"
             >
               Главная
             </a>
             <a
               href="#about"
-              className="block text-[24px] px-4 py-2 text-white mr-[46px] md:border-b-0 border-b-2  border-b-gray-500 mb-4 md:mb-0"
+              className="block text-[24px] px-4 py-2 text-white mr-[46px] md:border-b-0 border-b-2 border-b-gray-500 mb-4 md:mb-0"
             >
               О нас
             </a>
@@ -101,20 +102,25 @@ const Navbar: React.FC = () => {
             </div>
             <a
               href="#contact"
-              className="block text-[24px] px-4 py-2 text-white mr-[46px] md:border-b-0 border-b-2  border-b-gray-500"
+              className="block text-[24px] px-4 py-2 text-white mr-[46px] md:border-b-0 border-b-2 border-b-gray-500"
             >
               Контакты
             </a>
             <a href="tel:+998901234567" className="hidden md:block text-[24px]">
-              <button className="bg-[#FFE000] text-white px-4 py-2 rounded-md shadow-[0_0_16px_4px_#FFE000] transition duration-200">
+              <button className="bg-[#FFE000] text-white px-4 py-2 rounded-md cursor-pointer shadow-[0_0_16px_4px_#FFE000] transition duration-200">
                 Позвонить
               </button>
             </a>
           </div>
+
+          {/* Social icons - moved outside of nav links */}
           <div
-            className={`md:hidden absolute w-full py-6 px-6 top-100.5 left-0 z-20 flex items-center gap-7 ${
+            className={`md:hidden fixed w-full py-6 px-6 z-40 flex items-center gap-7 left-0 ${
               isOpen ? "flex" : "hidden"
             }`}
+            style={{
+              top: isOpen ? (isDropdownOpen ? "590px" : "380px") : "auto",
+            }}
           >
             <LucideLinkedin cursor={"pointer"} />
             <Instagram cursor={"pointer"} />
@@ -126,8 +132,8 @@ const Navbar: React.FC = () => {
             <button
               className={`${
                 currentLanguage === "RU"
-                  ? "text-white rounded-[7px] bg-[var(--secondary)] w-[42px] h-[32px] md:w-[87.6px] md:h-[52px] text-2xl md:text-[0px]"
-                  : ""
+                  ? "text-white rounded-[7px] bg-[var(--secondary)] w-[42px] h-[32px] md:w-[87.6px] md:h-[52px] text-2xl md:text-[32px]"
+                  : "text-[#FFDE00] w-[42px] h-[32px] md:w-[87.6px] md:h-[52px] text-2xl md:text-[32px]"
               } cursor-pointer`}
               onClick={() => setCurrentLanguage("RU")}
             >
@@ -136,8 +142,8 @@ const Navbar: React.FC = () => {
             <button
               className={`${
                 currentLanguage === "UZ"
-                  ? "text-white rounded-[7px] bg-[var(--secondary)] w-[42px] h-[32px] md:w-[87.6px] md:h-[52px] text-2xl md:text-[0px]"
-                  : ""
+                  ? "text-white rounded-[7px] bg-[var(--secondary)] w-[42px] h-[32px] md:w-[87.6px] md:h-[52px] text-2xl md:text-[32px]"
+                  : "text-[#FFDE00] w-[42px] h-[32px] md:w-[87.6px] md:h-[52px] text-2xl md:text-[32px]"
               } cursor-pointer`}
               onClick={() => setCurrentLanguage("UZ")}
             >
