@@ -1,10 +1,12 @@
 "use client";
-import { Navbar } from "@/components";
+
+import { Custom } from "@/components";
 
 export default function Home() {
   return (
     <div>
-      <Navbar />
+      <Custom.Navbar />
+      {/* <Custom.Banner /> */}
     </div>
   );
 }
